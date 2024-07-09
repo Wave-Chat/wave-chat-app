@@ -1,7 +1,10 @@
+import { useSession, signIn, signOut } from "next-auth/react";
 import { Button } from "@/components/ui/button";
 import { MoonIcon, SunIcon, MenuIcon, SearchIcon } from "@/components/ui/icons";
 
 const Header = ({ isDarkMode, handleDarkModeToggle }) => {
+  const { data: session } = useSession();
+
   return (
     <header
       className={`flex items-center justify-between px-6 py-4 ${
@@ -35,6 +38,18 @@ const Header = ({ isDarkMode, handleDarkModeToggle }) => {
           <MenuIcon className="h-5 w-5" />
           <span className="sr-only">Menu</span>
         </Button>
+        {session ? (
+          <>
+            <p>{session.user?.name}</p>
+            <Button variant="ghost" size="icon" onClick={() => signOut()}>
+              Sign out
+            </Button>
+          </>
+        ) : (
+          <Button variant="ghost" size="icon" onClick={() => signIn()}>
+            Sign in
+          </Button>
+        )}
       </div>
     </header>
   );

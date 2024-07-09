@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import { useSession } from "next-auth/react";
 import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
 import ChatWindow from "@/components/ChatWindow";
 
 export default function HomePage() {
+  const { data: session } = useSession();
   const [pinnedMessage, setPinnedMessage] = useState(null);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const messages = [

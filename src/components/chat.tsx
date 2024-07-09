@@ -217,7 +217,7 @@ export function Chat() {
             </div>
             <ScrollArea className="flex-1 p-4 space-y-4">
               {" "}
-              {/* Ajout de space-y-4 pour espacer les messages */}
+              {/*  space-y-4 pr espacer les Message */}
               <div className="grid gap-4">
                 <div
                   className={`flex w-max max-w-[80%] flex-col gap-1 rounded-2xl border px-4 py-2 text-sm ${

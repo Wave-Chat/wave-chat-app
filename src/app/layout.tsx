@@ -3,6 +3,7 @@ import { Bricolage_Grotesque } from "next/font/google";
 import { Space_Mono } from "next/font/google";
 import { cn } from "@/lib/utils";
 import "./globals.css";
+import SessionProviderWrapper from "@/components/SessionProviderWrapper";
 
 export const metadata: Metadata = {
   title: "WaveChat",
@@ -27,7 +28,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const isDarkMode = true; //
+  const isDarkMode = true;
   return (
     <html lang="en" className={isDarkMode ? "dark" : ""}>
       <body
@@ -38,7 +39,7 @@ export default function RootLayout({
           isDarkMode ? "bg-gray-900 text-gray-100" : "bg-white text-black"
         )}
       >
-        {children}
+        <SessionProviderWrapper>{children}</SessionProviderWrapper>
       </body>
     </html>
   );
