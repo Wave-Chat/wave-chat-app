@@ -37,7 +37,7 @@ export default function HomePage() {
     },
   ];
 
-  const handlePinMessage = (message) => {
+  const handlePinMessage = (message:any) => {
     setPinnedMessage(message);
   };
 

@@ -1,6 +1,6 @@
 import { CheckIcon } from "@/components/icons";
 
-export default function ChatMessage({ message, isDarkMode }) {
+export default function ChatMessage({ message, isDarkMode }:any) {
   return (
     <div
       className={`flex w-max max-w-[80%] flex-col gap-1 rounded-2xl border px-4 py-2 text-sm ${

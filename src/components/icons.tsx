@@ -1,4 +1,4 @@
-export function BellIcon(props) {
+export function BellIcon(props:any) {
   return (
     <svg
       {...props}
@@ -18,7 +18,7 @@ export function BellIcon(props) {
   );
 }
 
-export function CheckIcon(props) {
+export function CheckIcon(props:any) {
   return (
     <svg
       {...props}
@@ -37,7 +37,7 @@ export function CheckIcon(props) {
   );
 }
 
-export function ImageIcon(props) {
+export function ImageIcon(props:any) {
   return (
     <svg
       {...props}
@@ -58,7 +58,7 @@ export function ImageIcon(props) {
   );
 }
 
-export function MenuIcon(props) {
+export function MenuIcon(props:any) {
   return (
     <svg
       {...props}
@@ -79,7 +79,7 @@ export function MenuIcon(props) {
   );
 }
 
-export function MoonIcon(props) {
+export function MoonIcon(props:any) {
   return (
     <svg
       {...props}
@@ -98,7 +98,7 @@ export function MoonIcon(props) {
   );
 }
 
-export function PlusIcon(props) {
+export function PlusIcon(props:any) {
   return (
     <svg
       {...props}
@@ -118,7 +118,7 @@ export function PlusIcon(props) {
   );
 }
 
-export function SearchIcon(props) {
+export function SearchIcon(props:any) {
   return (
     <svg
       {...props}
@@ -138,7 +138,7 @@ export function SearchIcon(props) {
   );
 }
 
-export function SendIcon(props) {
+export function SendIcon(props:any) {
   return (
     <svg
       {...props}
@@ -158,7 +158,7 @@ export function SendIcon(props) {
   );
 }
 
-export function SunIcon(props) {
+export function SunIcon(props:any) {
   return (
     <svg
       {...props}
@@ -185,7 +185,7 @@ export function SunIcon(props) {
   );
 }
 
-export function XIcon(props) {
+export function XIcon(props:any) {
   return (
     <svg
       {...props}
