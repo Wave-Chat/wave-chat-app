@@ -1,0 +1,39 @@
+name: Deploy to Railway
+
+on:
+  workflow_run:
+    workflows: ["Continious Integration"]
+    types:
+      - completed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Download build artifacts
+      uses: actions/download-artifact@v2
+      with:
+        name: build
+        path: .next
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Deploy to Railway
+      env:
+        RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+      run: |
+        curl -sSL https://cli.railway.app/install.sh | sh
+        railway login --token $RAILWAY_TOKEN
+        railway link --project-id b478d2ae-80e5-481b-960a-5872308ffc66
+        railway up
