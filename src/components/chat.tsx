@@ -102,7 +102,7 @@ export function Chat() {
                       isDarkMode ? "text-muted-foreground" : "text-foreground"
                     }`}
                   >
-                    Hey, how's it going?
+                    Hey, how&apos;s it going?
                   </div>
                 </div>
                 <div
@@ -226,7 +226,7 @@ export function Chat() {
                       : "border-muted/10 bg-secondary/20"
                   }`}
                 >
-                  <div>Hey, how's it going?</div>
+                  <div>Hey, how&apos;s it going?</div>
                   <div className="text-xs text-muted-foreground">2:34 PM</div>
                   <div className="flex items-center justify-end gap-2">
                     <CheckIcon
@@ -243,7 +243,7 @@ export function Chat() {
                       : "border-primary bg-primary text-primary-foreground"
                   }`}
                 >
-                  <div>I'm doing great, thanks for asking!</div>
+                  <div>I&apos;m doing great, thanks for asking!</div>
                   <div
                     className={`text-xs ${
                       isDarkMode

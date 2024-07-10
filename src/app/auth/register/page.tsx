@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Backend_URL } from "@/lib/Constants";
 
-const register = () => {
+const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -99,4 +99,4 @@ const register = () => {
   );
 };
 
-export default register;
+export default Register;

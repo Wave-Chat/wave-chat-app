@@ -4,7 +4,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
 import { PlusIcon, CheckIcon, BellIcon } from "@/components/ui/icons";
 
-const Sidebar = ({ isDarkMode }) => {
+const Sidebar = ({ isDarkMode }:any) => {
   return (
     <div
       className={`border-r p-4 ${
@@ -46,7 +46,7 @@ const Sidebar = ({ isDarkMode }) => {
                   isDarkMode ? "text-gray-400" : "text-gray-500"
                 }`}
               >
-                Hey, how's it going?
+                Hey, how&apos;s it going?
               </div>
             </div>
             <div
