@@ -1,6 +1,6 @@
 import { Backend_URL } from "../../../../lib/Constants";
 import { NextAuthOptions } from "next-auth";
-import { JWT } from "next-auth/jwt";
+
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
@@ -54,7 +54,7 @@ export const authOptions: NextAuthOptions = {
     maxAge: 60 * 60, // 1 hour
   },
   pages: {
-    signIn: '/auth/signin',
+    signIn: '/auth/login',
     error: '/auth/error',
   },
 };

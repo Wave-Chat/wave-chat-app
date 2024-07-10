@@ -1,8 +1,9 @@
 import { useSession, signIn, signOut } from "next-auth/react";
 import { Button } from "@/components/ui/button";
 import { MoonIcon, SunIcon, MenuIcon, SearchIcon } from "@/components/ui/icons";
+import Link from "next/link";
 
-const Header = ({ isDarkMode, handleDarkModeToggle }) => {
+const Header = ({ isDarkMode, handleDarkModeToggle }:any) => {
   const { data: session } = useSession();
 
   return (
@@ -46,9 +47,12 @@ const Header = ({ isDarkMode, handleDarkModeToggle }) => {
             </Button>
           </>
         ) : (
-          <Button variant="ghost" size="icon" onClick={() => signIn()}>
-            Sign in
-          </Button>
+          <Link
+          href={"/auth/signin"}
+          className="flex gap-4 ml-auto text-green-600"
+        >
+          Sign In
+        </Link>
         )}
       </div>
     </header>

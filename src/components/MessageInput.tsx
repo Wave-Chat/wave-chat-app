@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import  {Input}  from "@/components/ui/input";
 import { SendIcon, ImageIcon, XIcon } from "@/components/icons";
 
-export default function MessageInput({ isDarkMode }) {
+export default function MessageInput({ isDarkMode }:any) {
   return (
     <div
       className={`border-t border-muted/20 p-4 ${

@@ -1,6 +1,6 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import  Input  from "@/components/ui/input";
+import  {Input}  from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { CheckIcon, SendIcon, ImageIcon, XIcon } from "@/components/ui/icons";
 import { Key, ReactElement, JSXElementConstructor, ReactNode, ReactPortal, AwaitedReactNode } from "react";
