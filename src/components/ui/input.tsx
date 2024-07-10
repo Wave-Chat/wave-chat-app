@@ -1,25 +1,26 @@
-import * as React from "react"
+import React from "react";
 
-import { cn } from "@/lib/utils"
+interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
+  labelText?: string;
+  error?: string;
+}
 
-export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {}
-
-const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, ...props }, ref) => {
-    return (
+const Input = ({ labelText, error, ...props }: Props) => {
+  return (
+    <div className={props.className}>
+      {labelText && (
+        <label className="block text-muted-foreground mb-2 text-xs lg:text-sm xl:text-base">
+          {labelText}
+        </label>
+      )}
       <input
-        type={type}
-        className={cn(
-          "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
-          className
-        )}
-        ref={ref}
+        className={`border rounded-md disabled:border-muted w-full block outline-none py-2 px-1 transition-all text-xs lg:text-sm xl:text-base bg-input focus:ring focus:ring-primary 
+          ${error ? "border-destructive animate-shake" : "border-border"}`}
         {...props}
       />
-    )
-  }
-)
-Input.displayName = "Input"
+      {error && <p className="text-destructive text-xs mt-1">{error}</p>}
+    </div>
+  );
+};
 
-export { Input }
+export default Input;
