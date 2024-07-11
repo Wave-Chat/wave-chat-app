@@ -38,11 +38,12 @@ export const authOptions: NextAuthOptions = {
         if (user) {
           return { ...token, ...user };
         }
-  
+        console.log(token)
         return token;
       },
       async session({ session, token }) {
         session.user = token.user;
+        console.log(session)
         return session;
       },
     },
@@ -53,8 +54,5 @@ export const authOptions: NextAuthOptions = {
       secret: process.env.JWT_SECRET,
       maxAge: 60 * 60, // 1 hour
     },
-    pages: {
-      signIn: '/auth/login',
-      error: '/auth/error',
-    },
+
   };

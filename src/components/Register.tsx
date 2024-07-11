@@ -3,8 +3,13 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Backend_URL } from "@/lib/Constants";
-
-const Register = () => {
+import { useSession } from "next-auth/react";
+interface LogInProps {
+    setShowSignUp: () => void;
+  }
+const Register : React.FC<Readonly<LogInProps>> = ({ setShowSignUp })=> {
+    const { data: session } = useSession();
+   
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,7 +23,6 @@ const Register = () => {
       },
       body: JSON.stringify({ name, email, password }),
     });
-
     if (!res.ok) {
       alert(res.statusText);
       return;
@@ -30,7 +34,7 @@ const Register = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+    <div className="flex justify-center items-center min-h-screen bg-gradient-to-t from-primary to-white ">
       <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-xl shadow-lg">
         <h2 className="text-2xl font-bold text-center text-gray-900">Welcome to Wavechat</h2>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
@@ -80,7 +84,7 @@ const Register = () => {
           </div>
           <div className="flex items-center justify-between">
             <div className="text-sm">
-              <Link href="/auth/signin" className="font-medium text-indigo-600 hover:text-indigo-500">
+              <Link href=""  onClick={setShowSignUp} className="font-medium text-muted hover:text-muted">
                 Already have an account? Sign in
               </Link>
             </div>
@@ -88,7 +92,7 @@ const Register = () => {
           <div>
             <button
               type="submit"
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-primary hover:bg-muted focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-muted"
             >
               register
             </button>

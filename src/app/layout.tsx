@@ -3,7 +3,10 @@ import { Bricolage_Grotesque } from "next/font/google";
 import { Space_Mono } from "next/font/google";
 import { cn } from "@/lib/utils";
 import "./globals.css";
-import SessionProviderWrapper from "@/components/SessionProviderWrapper";
+import SessionProviderWrapper from "@/lib/SessionProviderWrapper";
+import { ApolloProvider } from "@apollo/client";
+import apolloClient from "@/lib/apollo";
+import { ApolloWrapper } from "@/http/client";
 
 export const metadata: Metadata = {
   title: "WaveChat",
@@ -39,7 +42,7 @@ export default function RootLayout({
           isDarkMode ? "bg-gray-900 text-gray-100" : "bg-white text-black"
         )}
       >
-        <SessionProviderWrapper>{children}</SessionProviderWrapper>
+        <SessionProviderWrapper> <ApolloWrapper>{children}</ApolloWrapper></SessionProviderWrapper>
       </body>
     </html>
   );

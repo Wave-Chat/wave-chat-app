@@ -4,8 +4,13 @@ import  {Input}  from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { CheckIcon, SendIcon, ImageIcon, XIcon } from "@/components/ui/icons";
 import { Key, ReactElement, JSXElementConstructor, ReactNode, ReactPortal, AwaitedReactNode } from "react";
+import ChatInput from "./ChatInput";
+import { CREATE_MESSAGE} from "@/http/chat";
+import { useMutation } from "@apollo/client";
 
 const ChatWindow = ({ pinnedMessage, messages, isDarkMode }:any) => {
+  
+  const [sendMessage] = useMutation(CREATE_MESSAGE);
   return (
     <div className={`flex-1 ${isDarkMode ? " text-gray-100" : " bg-white text-black"}`}>
       <div className="flex h-full flex-col">
@@ -48,31 +53,7 @@ const ChatWindow = ({ pinnedMessage, messages, isDarkMode }:any) => {
             ))}
           </div>
         </ScrollArea>
-        <div
-          className={`border-t border-gray-700 p-4 ${
-            isDarkMode ? "bg-gray-800 text-gray-200" : "bg-gray-100"
-          }`}
-        >
-          <form className="flex w-full items-center space-x-2">
-            <Input
-              id="message"
-              placeholder="Type your message..."
-              className="flex-1"
-              autoComplete="off"
-            />
-            <Button type="submit" size="icon">
-              <span className="sr-only">Send</span>
-              <SendIcon className="h-5 w-5" />
-            </Button>
-            <Button variant="ghost" size="icon" className="rounded-full">
-              <ImageIcon className="h-5 w-5" />
-              <span className="sr-only">Send Image</span>
-            </Button>
-            <Button variant="ghost" size="icon" className="rounded-full">
-              <XIcon />
-            </Button>
-          </form>
-        </div>
+        <ChatInput sendMessage={(message: string) => sendMessage({ variables: { roomId:"", message } })}  isDarkMode={isDarkMode}/>
       </div>
     </div>
   );

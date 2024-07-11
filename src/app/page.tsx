@@ -5,9 +5,13 @@ import { useSession } from "next-auth/react";
 import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
 import ChatWindow from "@/components/ChatWindow";
+import { useQuery } from "@apollo/client";
+import { GET_USER_CHATS } from "@/http/chat";
+import { AuthGuard } from "@/components/AuthGuard";
 
-export default function HomePage() {
+function Home({ user }: Readonly<{ user: {  id: string, name: string, email: string, createdAt: any } }>){
   const { data: session } = useSession();
+  
   const [pinnedMessage, setPinnedMessage] = useState(null);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const messages = [
@@ -49,6 +53,9 @@ export default function HomePage() {
     setIsDarkMode((prevState) => !prevState);
   };
 
+  const [selectedRoom, setSelectedRoom] = useState<null>(null);
+  const { data: rooms, loading } = useQuery(GET_USER_CHATS);
+
   return (
     <div
       className={`flex h-screen w-full flex-col ${
@@ -72,3 +79,9 @@ export default function HomePage() {
     </div>
   );
 }
+
+const AuthorizationHome = () => {
+  return <AuthGuard render={Home} />;
+};
+
+export default AuthorizationHome;

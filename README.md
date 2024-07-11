@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Wave chat Next.js Authentication with NextAuth.js and Apollo Client
+
+This repository contains a Next.js application with authentication implemented using NextAuth.js with custom credentials and Apollo Client for GraphQL queries.
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Getting Started](#getting-started)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Usage](#usage)
+- [Customizing Authentication Pages](#customizing-authentication-pages)
+- [Using Apollo Client](#using-apollo-client)
+- [Troubleshooting](#troubleshooting)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Introduction
+
+This project demonstrates how to implement authentication in a Next.js application using NextAuth.js with custom credentials and how to set up Apollo Client for GraphQL queries.
 
 ## Getting Started
 
-First, run the development server:
+To get started with this project, clone the repository and install the necessary dependencies.
+
+### Prerequisites
+
+- Node.js (>=14.x)
+- npm or yarn
+
+### Clone the repository
+
+```bash
+git clone https://github.com/Wave-Chat/wave-chat-app
+cd wave-chat-app
+```
+
+## Installation
+
+Install the dependencies:
+
+```bash
+npm install
+```
+or
+```bash
+yarn install
+```
+
+## Configuration
+
+### Environment Variables
+
+Create a `.env.local` file in the root of your project and add the necessary environment variables, including `NEXTAUTH_URL`, `NEXTAUTH_SECRET`, and `GRAPHQL_ENDPOINT`.
+
+### NextAuth Configuration
+
+Configure NextAuth.js to use custom credentials. Implement the `authorize` method to handle user authentication based on the provided credentials.
+
+### Apollo Client Configuration
+
+Set up Apollo Client in your project and create an Apollo Client instance. Provide this instance to your Next.js application.
+
+## Usage
+
+### Starting the Development Server
+
+To start the development server, run:
 
 ```bash
 npm run dev
-# or
+```
+or
+```bash
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Accessing the Application
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Once the server is running, you can access the application at `http://localhost:3000`.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Customizing Authentication Pages
 
-## Learn More
+NextAuth.js provides default authentication pages, but you can customize them by creating your own pages. Refer to the NextAuth.js documentation for detailed instructions on how to override the default pages.
 
-To learn more about Next.js, take a look at the following resources:
+## Using Apollo Client
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Setting Up Apollo Client
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Install Apollo Client and its dependencies, then set up Apollo Client and provide it to your Next.js application.
 
-## Deploy on Vercel
+### Making GraphQL Queries
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Use Apollo Client to make GraphQL queries in your components.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Troubleshooting
+
+Refer to the Next.js, NextAuth.js, and Apollo Client documentation for troubleshooting common issues.
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request on GitHub.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.

@@ -2,7 +2,21 @@ import { Button } from "@/components/ui/button";
 import  {Input}  from "@/components/ui/input";
 import { SendIcon, ImageIcon, XIcon } from "@/components/icons";
 
-export default function MessageInput({ isDarkMode }:any) {
+interface ChatInputProps {
+  sendMessage: (message: string) => void;
+  isDarkMode: boolean
+}
+
+export default function ChatInput({ sendMessage, isDarkMode }:ChatInputProps) {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const message = e.currentTarget.message;
+    if (message.value.trim() === "") return;
+    if (message) {
+      sendMessage(message.value);
+      message.value = "";
+    }
+  };
   return (
     <div
       className={`border-t border-muted/20 p-4 ${
@@ -11,7 +25,7 @@ export default function MessageInput({ isDarkMode }:any) {
           : "bg-muted/10"
       }`}
     >
-      <form className="flex w-full items-center space-x-2">
+      <form onSubmit={handleSubmit}  className="flex w-full items-center space-x-2">
         <Input
           id="message"
           placeholder="Type your message..."
